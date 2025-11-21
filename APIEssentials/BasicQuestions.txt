@@ -1,0 +1,20 @@
+Q:Why FastAPI is fast?
+A:Because it is built on:
+Starlette (async web framework)
+Pydantic (fast validation)
+Uses ASGI, not WSGI (Asynchronous)
+
+Q:Difference between GET and POST in FastAPI?
+GET:
+no request body, parameters passed in path/query, idempotent
+POST:
+request body, used to create resources, 
+
+Q:What is Pydantic?
+Data validation, Schema enforcement, Serializes input/output
+
+Q:What is /docs in FastAPI?
+Swagger UI auto-generated (Open API), Interactive API docs, Powered by OpenAPI spec
+
+Q:How do you run FastAPI?
+uvicorn main:app --reload

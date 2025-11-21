@@ -1,0 +1,29 @@
+STEP - 1 pip install fastapi uvicorn
+STEP - 2 the main.py file
+STEP - 3 Import the boilerplate (import and instantiate)
+STEP - 4 create first GET endpoint. ex: return a message 
+STEP - 5 run the server - command uvicorn main:app --reload
+main - filename
+app  - fastapi instance
+--reload - auto reload when code changes
+STEP - 6 create first POST endpoint
+define the model using Pydantic - basemodel
+STEP - 7 test your POST request - use open api (swagger UI)
+enter input
+{
+  "name": "Laptop",
+  "price": 1399.99,
+  "in_stock": true
+}
+output
+{
+  "message": "Item created successfully!",
+  "item": {
+    "name": "Laptop",
+    "price": 1399.99,
+    "in_stock": true
+  }
+}
+STEP - 8 add GET with parameters
+STEP - 9 add query parameters /search
+STEP - 10 combine GET + POST for a mini in-memory database

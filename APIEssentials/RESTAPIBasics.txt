@@ -1,0 +1,151 @@
+This contains RESTAPI Basics
+
+RESTAPI
+A way for client and servers to communicate using:
+> HTTP methods
+> URLs as Resource Identifiers
+> JSON as data format
+> Stateless communication
+
+RESTAPI - Representational State Transfer
+It is a set of architectural principles for designing APIs
+
+These can be built using
+> FastAPI
+> Flask
+> Node.js (Express)
+> Django
+> Spring boot
+> Go fiber
+
+HTTP methods
+> GET - Retrieve data, idempotent, safe, cacheable
+> POST - Create new resource, Not idempotent
+> PUT - replace entire resource
+> PATCH - Partially update resource
+> DELETE - Delete resource, idempotent
+
+URL Structure
+-------------
+
+REST Endpoint designing:
+BAD:
+/createUser
+/getUserDetails
+
+Good:
+/users
+/users/{id}
+/users/{id}/orders
+
+Query Params vs Path Params
+---------------------------
+
+Path Param = identifies a resource
+GET /users/10
+Query Param = filter/sorting/search
+GET /products?max_price=100&color=red
+
+Status Codes
+------------
+
+Code  Meaning
+200     OK
+201     Resource Created
+204     No content 
+400     Bad request
+401     Unauthorized
+403     Forbidden
+404     Not Found
+409     Conflict
+500     Server Error
+
+CRUD API for a Resource (Users)
+-------------------------------
+Create        - POST/users
+Read all      - GET/users
+Read one      - GET/users/{id}
+Update full   - PUT/users/{id}
+Update partial- PATCH/users/{id}
+Delete        - DELETE/userse/{id}
+
+
+Best Practices for Production APIs
+----------------------------------
+Pagination - GET/users?page=2&page_size=20
+Filtering  - GET/users?min_age=18&city=NY
+Sorting    - GET/users?sort_by=name&order=asc
+Versioning - /v1/users 
+Auth       - API keys, JWT tokens, OAuth
+
+Interview Questions
+-------------------
+1. Difference between PUT and PATCH
+    Put is for full replace, patch is for partial update
+
+2. Itempotent methods   
+    get, put and Delete
+
+3. statelessness in REST
+    servers donot store client session
+    every request must carry auth (API key)
+
+4. How to design scalable REST APIs?
+    By incorporating pagination, caching, rate limiting, load balancing, stateless servers, consistent naming, versioning
+
+5. When to use Path Params vs Query Params?
+    Path = when identifiying specific resource - like GET
+    Query = while search, filter or sort
+
+6. Difference between REST and GraphQL
+    REST - multiple endpoints
+    GraphQL - single endpoint, client specifies fields
+
+7. Design a REST API for a TO do app
+    Resources: todos, users (optional)
+    Endpoints: 
+        Create a todo
+            POST/todos
+            Body: {
+                "title": "abc",
+                "completed": false,
+                
+            }
+            Response: 201 created
+
+        Get all todos
+            GET/todos
+            Response: 200 OK
+
+        Get a specific todo
+            GET/todos/{id}
+            Response: 200 OK
+            404 if not Found
+
+        change a todo
+            PUT/todos/{id}
+
+        modify a todo
+            PATCH/todos/{id}
+
+        delete a todo
+            DELETE/todos/{id}
+            Response: 204 No content
+
+        filter
+            GET/todos?completed=true
+            GET/todos?user_id=23
+
+8. What is pagination?
+    Prevents returning huge datasets
+    Query Params: GET/products?limit=20&offset=40
+    Response:
+    {
+        "page": 2,
+        "page_size": 20,
+        "total": 450,
+        "data": [...]
+    }
+
+
+

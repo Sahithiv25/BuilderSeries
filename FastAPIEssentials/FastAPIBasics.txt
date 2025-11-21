@@ -1,3 +1,5 @@
+FastAPI basics
+
 STEP - 1 pip install fastapi uvicorn
 STEP - 2 the main.py file
 STEP - 3 Import the boilerplate (import and instantiate)

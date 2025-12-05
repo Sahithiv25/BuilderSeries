@@ -45,7 +45,34 @@ class Solution:
 
 # LC 3: Longest substring without repeating characters
 # find the longest substring
+# example of a dynamic sliding window
+# Ex: abcabcbb output=abc length 3
+# window grows to the right and whenever we find a duplicate we shrink the window from the left until duplicate is removed
+# left = left boundary of sliding window, starts at 0, moves right whenever we hit duplicate
+# right = right boundary of sliding window, grows with each character we encounter
+# char_index dict storing the last seen postion of every char
 
+# Ex: {a:0, b:1, c:2}
 
+class Solution:
+    def lengthOfLongestSubstring(self, s:str) -> int:
+        char_index = {}
+        left = 0
+        longest = 0
+        for right, char in enumerate(s): # takes O(n)
+            if char in char_index and char_index[char] >= left:
+                left = char_index[char] + 1
+            
+            char_index[char] = right
+            longest = max(longest, right-left+1)
+        return longest
+
+# TC = O(n)
+# I use a dynamic sliding window with two pointers (left and right).
+# As I iterate with the right pointer, I store the last seen index of each character in a hashmap.
+# If a character repeats inside the current window, I update the left pointer to just after the previous index of that character.
+# This ensures the window always contains unique characters.
+# At each step, I compute the window length and update the maximum.
+# This gives an O(n) solution because each pointer only moves forward.
 
 

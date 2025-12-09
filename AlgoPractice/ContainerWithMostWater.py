@@ -28,9 +28,9 @@ class Solution:
             w = r - l
             h = min(height[l],height[r])
             area_of_container = w * h
-            max_area = max(max_area,area_of container)
+            max_area = max(max_area,area_of_container)
 
-            if height[i] < height[r]:
+            if height[l] < height[r]:
                 l += 1
             else:
                 r -= 1

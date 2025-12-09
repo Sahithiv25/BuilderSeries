@@ -34,3 +34,5 @@ class Solution:
     
 # TC = O(n^2)
 # SC = O(n)
+
+# Another optimal solution is to use 2 pointers O(n^2)

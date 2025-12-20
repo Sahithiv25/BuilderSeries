@@ -55,7 +55,7 @@ class Solution:
         result = []
         bu = len(bucket)
         for i in range(bu-1,-1,-1): # takes O(n)
-            if bucket[i] != 0:
+            if bucket[i]:
                 result.extend(bucket[i])
             if len(result) == k: # stop when we got the k elements
                 break
